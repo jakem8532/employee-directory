@@ -64,6 +64,27 @@ function promptUser() {
                 }
             }
         },
+
+        {
+            type: 'confirm',
+            name: 'confirmNewEmployee',
+            message: 'Would you like to add a new Employee?',
+            default: false
+        },
+
+        {
+            type: 'list',
+            name: 'newEmployee',
+            message: 'What type of Employee would you like to add?`',
+            choices: ['Engineer', 'Intern'],
+            when: ({confirmNewEmployee}) => {
+                if (confirmNewEmployee) {
+                    return true
+                }else {
+                    return false
+                }
+            }
+        }
     ])
 }
 
