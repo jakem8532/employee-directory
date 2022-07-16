@@ -33,9 +33,6 @@ function speciality(employee) {
 }
 
 function generatePage(employeeArr) {
-
-    console.log("this is working!", employeeArr)
-
     return `
     <!DOCTYPE html>
     <html lang="en">
