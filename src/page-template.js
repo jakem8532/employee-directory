@@ -5,7 +5,7 @@ const generateCards = employee => {
                     <div class="card">
                         <div class="card-header">
                             <h2>${employee.getName()}</h2>
-                            <h2>${employee.getRole()}</h2>
+                            <h3>${employee.getRole()}</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">ID: ${employee.getId()}</p>
