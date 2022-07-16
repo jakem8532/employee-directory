@@ -219,13 +219,7 @@ managerPrompt()
         return generatePage(employeeArr)
     })
     .then(pageHTML => writeFile(pageHTML))
-    .then(writeFileResponse => {
-        console.log(writeFileResponse)
-        return copyFile()
-    })
-    .then(copyFileResonse => {
-        console.log(copyFileResonse)
-    })
+    .then(copyFile())
     .catch(err => {
         console.log(err)
     })
