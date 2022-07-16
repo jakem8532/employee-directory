@@ -216,11 +216,9 @@ const copyFile = () => {
 managerPrompt()
     .then(teamMemberPrompt)
     .then(employeeArr => {
-        generatePage(employeeArr)
+        return generatePage(employeeArr)
     })
-    .then(pageHTML => {
-        return writeFile(pageHTML)
-    })
+    .then(pageHTML => writeFile(pageHTML))
     .then(writeFileResponse => {
         console.log(writeFileResponse)
         return copyFile()

@@ -1,17 +1,40 @@
-const generateCards = employeeArr => {
+const generateCards = employee => {
+    
+    
     return `
-    <div class="container">
-                <div class="card">
-                    <div class="card-header>
-                        <h2>name</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>${employee.getName()}</h2>
+                            <h2>${employee.getRole()}</h2>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">ID: ${employee.getId()}</p>
+                            <p class="card-text">Email: <a class="link" href="mailto: ${employee.getEmail()}">${employee.getEmail()}</a></p>
+                            <p class="card-text">${speciality(employee)}</p>
+                        </div>
                     </div>
-                </div>
-    </div>
     `
 }
 
-module.exports = directoryData => {
-    console.log(directoryData)
+function speciality(employee) {
+
+    const role = employee.getRole()
+
+    if (role === 'Manager') {
+        return `Office Number: ${employee.officeNumber}`
+    }
+    if (role === 'Engineer') {
+        return `Github: <a class="link" href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a>`
+    }
+
+    if(role === 'Intern') {
+        return `School: ${employee.getSchool()}`
+    }
+}
+
+function generatePage(employeeArr) {
+
+    console.log("this is working!", employeeArr)
 
     return `
     <!DOCTYPE html>
@@ -30,10 +53,14 @@ module.exports = directoryData => {
             </header>
 
             <main>
-                ${generateCards(directoryData)}
+                <div class="container">
+                    ${employeeArr.map(employee => generateCards(employee))}
+                </div>
             </main>
 
         </body>
 
     `
 }
+
+module.exports = generatePage
